@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cartão de Feliz Aniversário</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f8ff;
+            overflow: hidden;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #ff69b4;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Feliz Aniversário!</h1>
+        <p>Que o seu dia seja repleto de alegria, amor e muitas comemorações!</p>
+    </div>
+
+    <script>
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            
+            const colors = ['#ff0', '#f0f', '#0ff', '#0f0', '#f00', '#00f'];
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            
+            confetti.style.left = Math.random() * window.innerWidth + 'px';
+            confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+            confetti.style.opacity = Math.random();
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+
+            document.body.appendChild(confetti);
+
+            setTimeout(() => confetti.remove(), 5000);
+        }
+
+        setInterval(createConfetti, 200);
+    </script>
+</body>
+</html>
