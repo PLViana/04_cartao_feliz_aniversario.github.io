@@ -69,6 +69,35 @@
                 transform: translateY(100vh) rotate(360deg);
             }
         }
+        
+        @media (max-width: 768px) { /* Para tablets e celulares */
+    .card {
+        width: 90%;          /* Quase toda a largura da tela */
+        top: 20px;
+        right: auto;         /* Remove o alinhamento à direita */
+        left: 50%;
+        transform: translateX(-50%);  /* Centraliza horizontalmente */
+        padding: 20px;
+    }
+
+    .foto {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.8em;    /* Reduz o tamanho da fonte */
+    }
+
+    p {
+        font-size: 0.9em;    /* Texto menor para caber melhor */
+    }
+
+    .confetti {
+        width: 8px;          /* Confetes menores para telas pequenas */
+        height: 8px;
+    }
+}
+
     </style>
 </head>
 <body>
